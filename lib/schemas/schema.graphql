@@ -1,0 +1,5 @@
+# import Course from './courses.graphql'
+
+type Query {
+  getCourses: [Course]
+}
