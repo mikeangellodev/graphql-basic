@@ -9,7 +9,14 @@ const schema = buildSchema(`
   }
 `);
 
+// Resolvers
+const resolvers = {
+  hello: () => {
+    return 'Hello World!!!';
+  }
+}
+
 // Query execution
-graphql(schema, '{ hello }').then(data => {
+graphql(schema, '{ hello }', resolvers).then(data => {
   console.log(data)
 });
