@@ -1,22 +1,33 @@
 'use strict'
 
-const { graphql, buildSchema } = require('graphql');
+const express = require('express');
+const { ApolloServer, gql } = require('apollo-server-express');
+
+const app = express();
 
 // Schema definition
-const schema = buildSchema(`
+const typeDefs = gql`
   type Query {
     hello: String
   }
-`);
+`;
 
 // Resolvers
 const resolvers = {
-  hello: () => {
-    return 'Hello World!!!';
+  Query: {
+    hello: () => "Hello World!!!",
   }
-}
+};
 
-// Query execution
-graphql(schema, '{ hello }', resolvers).then(data => {
-  console.log(data)
+const graphqlServer = new ApolloServer({
+  typeDefs,
+  resolvers,
 });
+
+const port = process.env.PORT || 3000;
+
+graphqlServer.applyMiddleware({ app, path: '/api' });
+
+app.listen({ port }, () => {
+  console.log(`Server listening at http://127.0.0.1:${port}${graphqlServer.graphqlPath}`);
+})
