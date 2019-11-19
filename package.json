@@ -5,5 +5,7 @@
   "main": "index.js",
   "author": "@devmiguelangel",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "graphql": "14.5.8"
+  }
 }
