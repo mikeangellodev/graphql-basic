@@ -1,0 +1,9 @@
+{
+  "name": "graphql-basic",
+  "version": "1.0.0",
+  "description": "GraphQL básico",
+  "main": "index.js",
+  "author": "@devmiguelangel",
+  "license": "MIT",
+  "dependencies": {}
+}
