@@ -21,4 +21,6 @@ type Mutation {
   createStudent(input: StudentInput!): Student
   # Create a student
   editStudent(id: ID!, input: StudentEditInput!): Student
+  # Add a people to course
+  addPeople(courseId: ID!, personId: ID!): Course
 }

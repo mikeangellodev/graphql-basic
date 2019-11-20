@@ -1,9 +1,12 @@
+# import Student from './students.graphql'
+
 type Course {
   _id: ID!
   title: String!
   teacher: String
   description: String!
   topic: String
+  people: [Student]
 }
 
 input CourseInput {

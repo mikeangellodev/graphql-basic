@@ -1,5 +1,3 @@
-'use strict';
-
 require('dotenv').config();
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
@@ -21,5 +19,7 @@ const port = process.env.PORT || 3000;
 graphqlServer.applyMiddleware({ app, path: '/api' });
 
 app.listen({ port }, () => {
-  console.log(`Server listening at http://127.0.0.1:${port}${graphqlServer.graphqlPath}`);
+  console.log(
+    `Server listening at http://127.0.0.1:${port}${graphqlServer.graphqlPath}`,
+  );
 });

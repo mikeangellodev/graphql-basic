@@ -6,8 +6,12 @@
         "node": true
     },
     "extends": [
-        "eslint:recommended",
-        "prettier"
+        "airbnb",
+        // "eslint:recommended",
+        "prettier",
+        "plugin:prettier/recommended",
+        "plugin:promise/recommended",
+        "plugin:node/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -16,7 +20,9 @@
     "parserOptions": {
         "ecmaVersion": 2018
     },
+    "plugins": ["prettier", "promise"],
     "rules": {
+        "prettier/prettier": ["error"],
         "indent": [
             "error",
             2
@@ -32,6 +38,8 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console": "off",
+        "no-underscore-dangle": ["error", { "allow": ["_id"] }]
     }
 }
