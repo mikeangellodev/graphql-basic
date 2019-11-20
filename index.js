@@ -12,6 +12,21 @@ const app = express();
 const graphqlServer = new ApolloServer({
   typeDefs,
   resolvers,
+  formatError: error => {
+    if (error.extensions.code === 'INTERNAL_SERVER_ERROR') {
+      return new Error('A ocurrido un error en el servidor');
+    }
+
+    /* if (error.message.startsWith('Database Error: ')) {
+      return new Error('Internal server error');
+    } */
+
+    /* if (error.originalError instanceof AuthenticationError) {
+      return new Error('Different authentication error message!');
+    } */
+
+    return error;
+  },
 });
 
 const port = process.env.PORT || 3000;
