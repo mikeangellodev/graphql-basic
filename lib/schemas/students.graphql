@@ -1,0 +1,15 @@
+type Student {
+  _id: ID!
+  name: String!
+  email: String!
+}
+
+input StudentInput {
+  name: String!
+  email: String!
+}
+
+input StudentEditInput {
+  name: String
+  email: String
+}

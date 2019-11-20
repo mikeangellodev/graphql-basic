@@ -12,3 +12,10 @@ input CourseInput {
   description: String!
   topic: String
 }
+
+input CourseEditInput {
+  title: String
+  teacher: String
+  description: String
+  topic: String
+}
