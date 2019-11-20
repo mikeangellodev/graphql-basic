@@ -1,0 +1,17 @@
+version: "3.7"
+
+volumes:
+  graphql_db_data: {}
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: ./compose/db/Dockerfile
+    image: graphql_basic_db
+    env_file:
+      - ./compose/db/.env
+    volumes:
+      - graphql_db_data:/data/db
+    ports:
+      - "27117:27017"
