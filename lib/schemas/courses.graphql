@@ -5,3 +5,10 @@ type Course {
   description: String!
   topic: String
 }
+
+input CourseInput {
+  title: String!
+  teacher: String
+  description: String!
+  topic: String
+}
