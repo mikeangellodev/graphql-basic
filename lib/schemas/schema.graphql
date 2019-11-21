@@ -1,5 +1,5 @@
 # import Course, CourseInput, CourseEditInput from './courses.graphql'
-# import Student, StudentInput, StudentEditInput from './students.graphql'
+# import Person, PersonInput, PersonEditInput from './people.graphql'
 
 type Query {
   # Return all courses
@@ -7,9 +7,9 @@ type Query {
   # Return a single course
   getCourse(id: ID!): Course
   # Return all students
-  getStudents: [Student]
+  getPeople: [Person]
   # Return a single student
-  getStudent(id: ID!): Student
+  getPerson(id: ID!): Person
 }
 
 type Mutation {
@@ -18,9 +18,9 @@ type Mutation {
   # Edit a course
   editCourse(id: ID!, input: CourseEditInput!): Course
   # Create a student
-  createStudent(input: StudentInput!): Student
-  # Create a student
-  editStudent(id: ID!, input: StudentEditInput!): Student
+  createPerson(input: PersonInput!): Person
+  # Create a Person
+  editPerson(id: ID!, input: PersonEditInput!): Person
   # Add a people to course
   addPeople(courseId: ID!, personId: ID!): Course
 }

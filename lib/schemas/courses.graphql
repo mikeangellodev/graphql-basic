@@ -1,4 +1,4 @@
-# import Student from './students.graphql'
+# import Student from './people.graphql'
 
 enum Level {
   beginner

@@ -1,0 +1,33 @@
+interface Person {
+  _id: ID!
+  name: String!
+  email: String!
+}
+
+type Student implements Person {
+  _id: ID!
+  name: String!
+  email: String!
+  avatar: String
+}
+
+type Monitor implements Person {
+  _id: ID!
+  name: String!
+  email: String!
+  phone: String
+}
+
+input PersonInput {
+  name: String!
+  email: String!
+  avatar: String
+  phone: String
+}
+
+input PersonEditInput {
+  name: String
+  email: String
+  avatar: String
+  phone: String
+}
