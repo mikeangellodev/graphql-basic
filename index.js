@@ -14,6 +14,8 @@ const graphqlServer = new ApolloServer({
   resolvers,
   formatError: error => {
     if (error.extensions.code === 'INTERNAL_SERVER_ERROR') {
+      console.error(error);
+
       return new Error('A ocurrido un error en el servidor');
     }
 
