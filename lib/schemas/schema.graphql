@@ -1,5 +1,7 @@
 # import Course, CourseInput, CourseEditInput from './courses.graphql'
-# import Person, PersonInput, PersonEditInput from './people.graphql'
+# import Person, Student, Monitor, PersonInput, PersonEditInput from './people.graphql'
+
+union GlobalSearch = Course | Student | Monitor
 
 type Query {
   # Return all courses
@@ -10,6 +12,8 @@ type Query {
   getPeople: [Person]
   # Return a single student
   getPerson(id: ID!): Person
+  # Execute a global search
+  searchItems(keyword: String!): [GlobalSearch]
 }
 
 type Mutation {
