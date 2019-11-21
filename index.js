@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const { ApolloServer } = require('apollo-server-express');
 const { importSchema } = require('graphql-import');
 // Type Defs
@@ -8,10 +9,15 @@ const typeDefs = importSchema('./lib/schemas/schema.graphql');
 const resolvers = require('./lib/resolvers');
 
 const app = express();
+const isDev = process.env.NODE_ENV !== 'production';
+
+app.use(cors());
 
 const graphqlServer = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: isDev,
+  playground: isDev,
   formatError: error => {
     if (error.extensions.code === 'INTERNAL_SERVER_ERROR') {
       console.error(error);
